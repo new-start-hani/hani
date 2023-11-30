@@ -7,13 +7,13 @@ const Register = () => {
     "w-full relative border-b-2 border-[rgba(255,255,255,0.24)] mb-[30px]";
 
   const inputStyle =
-    "text-white leading-tight block w-full h-[45px] border border-neutral-500 bg-transparent rounded-md pr-[5px] pl-4 ";
-
+    "text-white leading-tight block w-full h-[45px] border border-neutral-500 bg-transparent rounded-md pr-[5px] pl-4 outline-none ";
+  const optionStyle = "bg-black";
   return (
     <>
       <div className="w-full my-0 mx-auto">
         <div className="w-full min-h-screen flex flex-wrap justify-center items-center p-4 ">
-          <div className="w-[500px] rounded-xl px-14 pt-14 pb-9 border-4 border-[#505050]">
+          <div className="w-[500px] rounded-xl px-14 pt-14 pb-9 bg-[#505050]">
             <form
               className="w-full bg-[#505050] divide-solid"
               onSubmit={submitHandler}
@@ -91,7 +91,7 @@ const Register = () => {
                 />
               </div>
               <div className={wrapInputStyle}>
-                <input
+                <select
                   placeholder="gender"
                   className={inputStyle}
                   {...register("gender", {
@@ -100,16 +100,38 @@ const Register = () => {
                   })}
                   min={1}
                   type="checkbox"
-                />
-              </div>
-              <select>
-                <option></option>
-              </select>
-              <div>
-                <input></input>
+                >
+                  <option className={optionStyle} value="male">
+                    Male
+                  </option>
+                  <option className={optionStyle} value="female">
+                    Female
+                  </option>
+                </select>
               </div>
               <div className={wrapInputStyle}>
-                <input className={inputStyle} />
+                <select
+                  className={inputStyle}
+                  {...register("hobby", {
+                    requried: "required",
+                  })}
+                >
+                  <option className={optionStyle} value="sports">
+                    Sports
+                  </option>
+                  <option className={optionStyle} value="game">
+                    Game
+                  </option>
+                  <option className={optionStyle} value="music">
+                    Music
+                  </option>
+                  <option className={optionStyle} value="food">
+                    Food
+                  </option>
+                  <option className={optionStyle} value="travel">
+                    Travel
+                  </option>
+                </select>
               </div>
               <div>
                 <button

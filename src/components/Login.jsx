@@ -12,7 +12,7 @@ const Login = () => {
         // style="background-image: url('images/bg-01.jpg');"
       >
         <div className="w-[500px] rounded-xl px-14 pt-14 pb-9 bg-[#505050]">
-          <form className="w-full validate-form">
+          <form className="w-full">
             <span className="text-6xl text-[#333333] flex justify-center items-center w-[120px] h-[120px] rounded-[50%] bg-[#fff] my-0 mx-auto">
               <i className="zmdi zmdi-landscape"></i>
             </span>
