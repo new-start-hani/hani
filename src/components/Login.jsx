@@ -27,9 +27,9 @@ const Login = () => {
             >
               <input
                 className={input100}
-                type="text"
-                name="username"
-                placeholder="Username"
+                name="email"
+                placeholder="email"
+                type="email"
               ></input>
             </div>
 
@@ -60,11 +60,13 @@ const Login = () => {
               </label>
             </div>
 
-            <div class="w-[130px] h-[40px] leading-[40px] rounded-[50px] my-0 mx-auto text-center bg-[#fff] mb-[20px]">
-              <button className="w-full">Login</button>
+            <div className="w-[130px] h-[40px] leading-[40px] rounded-[50px] my-0 mx-auto text-center bg-[#fff] mb-[20px]">
+              <button className="w-full" type="=submit">
+                Login
+              </button>
             </div>
 
-            <div class="text-center p-t-90">
+            <div className="text-center p-t-90">
               <a href="#">sign up</a>
             </div>
           </form>
