@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import MainPage from "./pages/MainPage";
 import RegisterPage from "./pages/RegisterPage";
-import NewFeedPage from "./pages/NewFeedPage";
+import FeedPage from "./pages/FeedPage";
+import Detail from "./components/detail";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/feed/new" element={<NewFeedPage />} />
+          <Route path="/feed" element={<FeedPage />} />
         </Routes>
       </BrowserRouter>
     </div>
