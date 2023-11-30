@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
+import { postSignUp } from "../apis/register";
 
 const Register = () => {
-  const { register, submitHandler } = useForm();
-
-  const wrapInputStyle =
-    "w-full relative border-b-2 border-[rgba(255,255,255,0.24)] mb-[30px]";
+  const { register, handleSubmit } = useForm();
+  const handleSignupSubmit = handleSubmit(async (data) => {
+    const res = await postSignUp(data);
+    console.log(res);
+  });
+  const wrapInputStyle = "w-full relative mb-[30px]";
 
   const inputStyle =
     "text-white leading-tight block w-full h-[45px] border border-neutral-500 bg-transparent rounded-md pr-[5px] pl-4 outline-none ";
@@ -16,26 +19,26 @@ const Register = () => {
           <div className="w-[500px] rounded-xl px-14 pt-14 pb-9 bg-[#505050]">
             <form
               className="w-full bg-[#505050] divide-solid"
-              onSubmit={submitHandler}
+              onSubmit={handleSignupSubmit}
             >
               <span className="text-3xl text-white leading-tight text-center block my-8">
                 Register
               </span>
               <div className={wrapInputStyle}>
-                <div className="flex flex-col gap-4">
-                  <input
-                    className={inputStyle}
-                    placeholder="Email"
-                    {...register("email", {
-                      required: "required",
-                      pattern: {
-                        value: /\S+@\S+.\S+/,
-                        message: "Entered value does not match email format",
-                      },
-                    })}
-                    type="email"
-                  />
-                </div>
+                <input
+                  className={inputStyle}
+                  placeholder="Email"
+                  {...register("email", {
+                    required: "required",
+                    pattern: {
+                      value: /\S+@\S+.\S+/,
+                      message: "Entered value does not match email format",
+                    },
+                  })}
+                  type="email"
+                />
+              </div>
+              <div className={wrapInputStyle}>
                 <input
                   placeholder="password"
                   className={inputStyle}
@@ -48,6 +51,8 @@ const Register = () => {
                   })}
                   type="password"
                 />
+              </div>
+              <div className={wrapInputStyle}>
                 <input
                   placeholder="confirmPassword"
                   className={inputStyle}
@@ -133,7 +138,7 @@ const Register = () => {
                   </option>
                 </select>
               </div>
-              <div>
+              <div className="flex justify-center">
                 <button
                   className="w-[130px] h-[40px] bg-white rounded-[50px]"
                   type="submit"
